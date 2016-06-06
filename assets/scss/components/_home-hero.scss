@@ -1,28 +1,136 @@
 .c-homeHero {
   height: 100vh;
+  padding-top: 10px;
   
-  &-top {
+  @include breakpoint(min-height 640px) {
+    padding-top: 30px;
+  }
+  
+  &-title {
+    font-size: 35px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    color: $c_black;
+    
+    @include breakpoint(min-height 640px) {
+      font-size: 40px;
+    }
+    
+    @include breakpoint((min-height 870px) and (min-width $lg)) {
+      font-size: 55px;
+    }
     
   }
+
+  &-subtitle {
+    font-size: 18px;
+    color: $c_black;
+    
+    @include breakpoint(min-height 490px) {
+      font-size: 23px;
+    }
+    
+    @include breakpoint($lg) {
+      font-size: 28px;
+    }
+  }
+  
+  &-top {
+    // Initial state for animation
+    opacity: 0;
+    // end
+  }
+  
   
   &-middle {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate3d(-50%, -50%, 0);
+    top: 58%;
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
     filter: none; 
     -webkit-filter: blur(0px); 
     -moz-filter: blur(0px); 
     -ms-filter: blur(0px);
     filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='0');
     backface-visibility: hidden;
+    
+    @include breakpoint(min-height 680px) {
+      top: 50%;
+    }
+    
+    img {
+      // Initial state for animation
+      opacity: 0;
+      // end
+      
+      max-height: 175px;
+      max-width: 100%;
+      
+      @include breakpoint(min-height 560px) {
+        max-height: 250px;
+      }
+      
+      @include breakpoint(min-height 640px) {
+        max-height: 370px;
+      }
+      
+      @include breakpoint(min-height 870px) {
+        max-height: 430px;
+      }
+      
+    }
+    
+    a {
+      // Initial state for animation
+      opacity: 0;
+      // end
+    }
+    
   }
   
   &-bottom {
+    // Initial state for animation
+    opacity: 0;
+    // end
     position: absolute;
     bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
   }
   
+  &-scroll {
+    
+    svg {
+      transition: transform 0.3s ease-in-out;  
+      animation-name: scroll;
+      animation-duration: 3s;
+      animation-delay: 0s;
+      animation-iteration-count: 1;
+    }
+    
+    &:hover {
+      svg {
+        transform: translateY(7px);
+      }
+      
+    }
+  }
+  
+}
+
+
+@keyframes scroll {
+  0% {
+    transform: translateY(0px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
 }

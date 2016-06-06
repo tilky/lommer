@@ -1,6 +1,7 @@
 .c-homeHero {
   height: 100vh;
   padding-top: 10px;
+  background-image: linear-gradient(-180deg, #FFFFFF 0%, #EAEAEA 100%);
   
   @include breakpoint(min-height 640px) {
     padding-top: 30px;

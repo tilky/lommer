@@ -1,0 +1,35 @@
+{
+  "name": "lommer",
+  "version": "1.0.0",
+  "authors": [
+    "Befoolish <zarkadas@befoolish.co>"
+  ],
+  "description": "Lommer shopify theme front end libraries",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "waypoints": "^4.0.0",
+    "slick-carousel": "^1.6.0",
+    "matchHeight": "matchheight#^0.7.0",
+    "jquery": "^2.2.2",
+    "matchMedia": "^0.3.0",
+    "velocity": "^1.2.3",
+    "smoothScroll.js": "^1.0.0",
+    "tether-drop": "drop#^1.4.2",
+    "breakpoint-sass": "^2.7.0",
+    "jquery-hoverintent": "jquery-hoverIntent#^1.8.1",
+    "modernizr": "^3.3.1",
+    "remodal": "^1.0.7",
+    "sticky-kit": "^1.1.2",
+    "magnific-popup": "^1.1.0",
+    "enquire": "^2.1.2",
+    "fastclick": "^1.0.6",
+    "ScrollToFixed": "^1.0.6"
+  }
+}

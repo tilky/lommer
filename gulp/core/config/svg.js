@@ -17,7 +17,7 @@ module.exports = {
 			assets.src + '/svg/**/*.svg',
 			'!' + assets.src + '/svg/sprite/**/*.svg'
 		],
-		dest: '../snippets/',
+		dest: assets.dest,
 		clean: [
 			assets.dest + '/svg/**/*.svg',
 			'!' + assets.dest + '/svg/sprite-*.svg'

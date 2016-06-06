@@ -17,7 +17,7 @@ module.exports = {
 		watch: assets.src + '/svg/sprite/**/*.svg',
 		src:   assets.src + '/svg/sprite',
 		dest:  './theme/snippets',
-		clean: assets.dest + '/svg/sprite-*.svg'
+		clean: './theme/snippets/sprite-*.svg.liquid'
 	},
 
 	options: {

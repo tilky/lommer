@@ -1,7 +1,14 @@
+/* eslint
+		no-var: 0,
+	  no-multi-spaces: 0,
+	  no-mixed-spaces-and-tabs: 0,
+	  no-multiple-empty-lines: 0
+*/
 var gulp  = require('gulp');
 var gutil = require('gulp-util');
 
 // utils
+var validateConfig = require('./gulp/core/utils/validateConfig');
 var lazyQuire      = require('./gulp/core/utils/lazyQuire');
 
 // gulpfile booting message
@@ -70,10 +77,10 @@ gulp.task('images:watch', ['images:dev'],   lazyQuire(require, './gulp/core/reci
 /**
  * Scripts
  */
-gulp.task('scripts:clean', [],                lazyQuire(require, './gulp/core/recipes/scripts/clean'));
-gulp.task('scripts:dev',   ['scripts:clean'], lazyQuire(require, './gulp/core/recipes/scripts/dev'));
-gulp.task('scripts:prod',  ['scripts:clean'], lazyQuire(require, './gulp/core/recipes/scripts/prod'));
-gulp.task('scripts:watch', ['scripts:clean'], lazyQuire(require, './gulp/core/recipes/scripts/watch'));
+// gulp.task('scripts:clean', [],                lazyQuire(require, './gulp/core/recipes/scripts/clean'));
+// gulp.task('scripts:dev',   ['scripts:clean'], lazyQuire(require, './gulp/core/recipes/scripts/dev'));
+// gulp.task('scripts:prod',  ['scripts:clean'], lazyQuire(require, './gulp/core/recipes/scripts/prod'));
+// gulp.task('scripts:watch', ['scripts:clean'], lazyQuire(require, './gulp/core/recipes/scripts/watch'));
 
 
 /**
@@ -83,10 +90,3 @@ gulp.task('styles:clean', [],               lazyQuire(require, './gulp/core/reci
 gulp.task('styles:dev',   ['styles:clean'], lazyQuire(require, './gulp/core/recipes/styles/dev'));
 gulp.task('styles:prod',  ['styles:clean'], lazyQuire(require, './gulp/core/recipes/styles/prod'));
 gulp.task('styles:watch', ['styles:dev'],   lazyQuire(require, './gulp/core/recipes/styles/watch'));
-
-/* eslint
-		no-var: 0,
-	  no-multi-spaces: 0,
-	  no-mixed-spaces-and-tabs: 0,
-	  no-multiple-empty-lines: 0
-*/

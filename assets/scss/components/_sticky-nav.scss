@@ -1,5 +1,8 @@
 .c-sticky-nav {
   transition: all 0.2s;
+  left: 0;
+  right: 0;
+  width: 100%;
 
   &.is_stuck {
     margin: 0;

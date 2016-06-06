@@ -1432,12 +1432,10 @@ jQuery(document).ready(function($){
     if ($('#ProductSelect-option-0').size()) { selectedVariant.push($('#ProductSelect-option-0').val()) }
     if ($('#ProductSelect-option-1').size()) { selectedVariant.push($('#ProductSelect-option-1').val()) }
     if ($('#ProductSelect-option-2').size()) { selectedVariant.push($('#ProductSelect-option-2').val()) }
-    console.log('You selected: ', selectedVariant);
     
     // Remove current slides
     var imax = $thumbs.find('.slick-slide').size();
     for (i = imax; i >= 0; i--) { 
-      console.log(i);
       $thumbs.slick('slickRemove', i)
       $featured.slick('slickRemove', i)
     }
@@ -1445,7 +1443,6 @@ jQuery(document).ready(function($){
     // Add new slides
     $.each(window.productImages, function( index, value ) {
       if (arraysEqual(value.alt, selectedVariant)) {
-        console.log('found a match');
         $thumbs.slick('slickAdd','<div><img src="' + value.url.medium + '" alt="' + value.alt + '" /></div>');
         $featured.slick('slickAdd', '<div><a href="' + value.url.grande + '" class="js-mfp-product"><img src="' + value.url.grande + '" /></a></div>');
       }

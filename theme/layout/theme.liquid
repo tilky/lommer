@@ -105,25 +105,6 @@
           Spacer element
         {% endcomment %}
         <li class="mobile-nav__spacer"></li>
-
-        {% comment %}
-          If customer accounts are enabled, provide login and create account links
-        {% endcomment %}
-        {% if customer %}
-          <li class="mobile-nav__item mobile-nav__item--secondary">
-            <a href="/account">{{ 'layout.customer.account' | t }}</a>
-          </li>
-          <li class="mobile-nav__item mobile-nav__item--secondary">
-            {{ 'layout.customer.log_out' | t | customer_logout_link }}
-          </li>
-        {% else %}
-          <li class="mobile-nav__item mobile-nav__item--secondary">
-            {{ 'layout.customer.log_in' | t | customer_login_link }}
-          </li>
-          <li class="mobile-nav__item mobile-nav__item--secondary">
-            {{ 'layout.customer.create_account' | t | customer_register_link }}
-          </li>
-        {% endif %}
         {% for link in linklists.footer.links %}
           <li class="mobile-nav__item mobile-nav__item--secondary"><a href="{{ link.url }}">{{ link.title }}</a></li>
         {% endfor %}

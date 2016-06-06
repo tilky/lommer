@@ -1,4 +1,11 @@
 /*================ Mobile navigation ================*/
+.site-nav--mobile {
+  > button {
+    background: none;
+    border: 0;
+  }
+}
+
 .mobile-nav {
   // Negative of .drawer left/right padding for full-width link tap area
   margin: (-$gutter / 2) (-$gutter / 2) 0 (-$gutter / 2);

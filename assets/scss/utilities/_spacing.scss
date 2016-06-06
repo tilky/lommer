@@ -73,6 +73,10 @@
     .u-marBottom\@#{$name} {
       margin-bottom: $baselineGrid !important;
     }
+    .u-marHorizontal-auto\@#{$name} {
+      margin-left: auto;
+      margin-right: auto;
+    }
     
     // Paddings
     .u-padTop\@#{$name} {

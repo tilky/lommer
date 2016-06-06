@@ -1,10 +1,5 @@
 .header-wrapper {
   background: #fff;
-  
-  @include breakpoint(max-width 768px) {
-    padding: 15px 0;
-  }
-  
 }
 
 .c-homeHero {

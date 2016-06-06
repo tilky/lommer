@@ -3,7 +3,7 @@
   <header class="site-header" role="banner">
     <div class="o-container">
       <div class="grid--full grid--table">
-        <div class="grid__item one-quarter u-display-none">
+        <div class="grid__item one-quarter u-display-none@mdo">
           <div class="site-nav--mobile">
             <button type="button" class="icon-fallback-text site-nav__link js-drawer-open-left" aria-controls="NavDrawer">
               <span class="icon icon-hamburger" aria-hidden="true"></span>
@@ -11,10 +11,10 @@
             </button>
           </div>
         </div>
-        <div class="grid__item large--one-third medium-down--one-half">
-          <h1 class="site-header__logo large--left" itemscope itemtype="http://schema.org/Organization">
-            <a href="/" itemprop="url" class="site-header__logo-link u-float-left">
-              <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo" height="19">
+        <div class="grid__item mdo--one-third mdu--one-half">
+          <h1 class="site-header__logo" itemscope itemtype="http://schema.org/Organization">
+            <a href="/" itemprop="url" class="site-header__logo-link">
+              <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo" height="19" class="u-marHorizontal-auto@mdu">
             </a>
           </h1>
         </div>
@@ -52,8 +52,8 @@
           </ul>
           <!-- //site-nav -->
         </div>
-        <div class="grid__item u-display-none one-quarter">
-          <div class="site-nav--mobile text-right">
+        <div class="grid__item u-display-none@mdo one-quarter">
+          <div class="site-nav--mobile u-textAlign-right">
             <a href="/cart" class="site-nav__link cart-link js-drawer-open-right" aria-controls="CartDrawer">
               <span class="icon-fallback-text">
                 <span class="icon icon-cart" aria-hidden="true"></span>

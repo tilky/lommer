@@ -1,0 +1,37 @@
+{% include 'products-nav' %}
+
+{% for product in collection.products %}
+<div class=" u-marTop-x8">
+  <h2 class="js-sticky-nav c-sticky-nav o-heading-small u-color-black u-textTransform-upperCase u-textAlign-center u-letterSpacing-1">{{ product.title }}</h2>
+  
+  <div class="o-container">  
+    <ul class="grid grid--center u-marTop-x3">
+      {% for variant in product.variants %}
+        <li class="grid__item xso--six-twelfths lgo--four-twelfths u-marBottom-x2">
+          <figure>
+            <img src="{{ variant.image.src | img_url: 'grande' }}" width="305" class="o-img-responsive o-img-responsive--centered" />
+          </figure>
+          <div class="grid grid--middle">
+            <div class="grid__item smo--five-twelfths mdo--six-twelfths u-marBottom@smu">
+              <p class="u-fontSize-small u-color-gray u-marBottom-tiny">{{ variant.title }}</p>
+              <p class="u-color-black u-fontSize-medium">{{ product.price | money }}</p>
+            </div>
+            <div class="grid__item smo--seven-twelfths mdo--six-twelfths">
+              <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+                <input type="hidden" name="id" value="{{ variant.id }}" />
+                <button type="submit" name="add" id="AddToCart" class="o-button o-button--dark-fill">
+                  <span id="AddToCartText">Add to cart</span>
+                </button>
+              </form>  
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+  {% endfor %}
+
+
+

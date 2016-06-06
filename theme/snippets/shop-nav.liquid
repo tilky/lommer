@@ -1,0 +1,81 @@
+<aside class="grid__item two-tenths u-display-none@mdu">
+  <h2 class="u-fontSize-small c-nav-shop__title">BAGS</h2>
+  <ul class="u-fontSize-small u-marBottom-x2 c-nav-shop-list">
+    {% for link in linklists.shop-bags.links %}
+      <li class="c-nav-shop__item {% if link.active %}is-active{% endif %} {% if linklists.[link.handle].links %}has-submenu{% endif %}">
+        <a href="{{ link.url }}" class="o-link o-link--black">{{ link.title }}</a>
+        <ul class="c-nav-shop-sublist">
+        {% for sublink in linklists.[link.handle].links %}
+          <li class="c-nav-shop__item {% if sublink.active %}is-active{% endif %}">
+            <a href="{{ sublink.url }}" class="o-link o-link--black">{{ sublink.title | escape }}</a>
+          </li>
+        {% endfor %}
+        </ul>
+      </li>
+    {% endfor %}
+  </ul>
+  <h2 class="u-fontSize-small c-nav-shop__title">EXTRAS</h2>
+  <ul class="u-fontSize-small u-marBottom-x3 c-nav-shop-list">
+    {% for link in linklists.shop-extras.links %}
+      <li class="c-nav-shop__item {% if link.active %}is-active{% endif %} {% if linklists.[link.handle].links %}has-submenu{% endif %}">
+        <a href="{{ link.url }}" class="o-link o-link--black">{{ link.title }}</a>
+        <ul class="c-nav-shop-sublist">
+        {% for sublink in linklists.[link.handle].links %}
+          <li class="c-nav-shop__item {% if sublink.active %}is-active{% endif %}">
+            <a href="{{ sublink.url }}" class="o-link o-link--black">{{ sublink.title | escape }}</a>
+          </li>
+        {% endfor %}
+        </ul>
+      </li>
+    {% endfor %}
+  </ul>
+  
+  {% if collection.handle == 'backpacks' or collection.handle == 'tote-bags' or collection.handle == 'clutches' or collection.handle == 'wallet' or collection.handle == 'shop' %}
+  <div class="c-product-widget u-textAlign-center js-sticky-widget">
+    <div class="js-slick-shop c-product-widget-slider">
+      {% for product in collection.products %}
+        <div>
+          <figure class="u-marBottom">
+            {% if product.handle == 'evaone' %}
+              <img src="{{ 'evaone.svg' | asset_url }}" width="75" class="o-img-responsive o-img-responsive--centered" />
+            {% elsif product.handle == 'evatwo' %}
+              <img src="{{ 'evatwo.svg' | asset_url }}" width="75" class="o-img-responsive o-img-responsive--centered" />
+            {% elsif product.handle == 'evapack' %}
+              <img src="{{ 'evapack.svg' | asset_url }}" width="75" class="o-img-responsive o-img-responsive--centered" />
+            {% elsif product.handle == 'evaclutch-one' %}
+              <img src="{{ 'evaclutch-one.svg' | asset_url }}" width="75" class="o-img-responsive o-img-responsive--centered" />
+            {% elsif product.handle == 'evaclutch-two' %}
+              <img src="{{ 'evaclutch-two.svg' | asset_url }}" width="75" class="o-img-responsive o-img-responsive--centered" />
+            {% elsif product.handle == 'evamini' %}
+              <img src="{{ 'evamini.svg' | asset_url }}" width="75" class="o-img-responsive o-img-responsive--centered o-img-responsive o-img-responsive--centered--centered" />
+            {% endif %}
+          </figure>
+          <p class="u-marBottom">{{ product.title }}</p>
+          <p class="u-borderTop-grayLight u-borderBottom-grayLight u-marBottom u-fontSize-small">A FEW TIPS:</p>
+          <ul class="u-fontWeight-light u-textAlign-left">
+            {% if product.handle == 'evatwo' %}
+              <li class="u-fontSize-basesm c-product-widget-listItem">Tote bag with changing straps</li>
+              <li class="u-fontSize-basesm c-product-widget-listItem">10 different strap colors</li>
+            {% elsif product.handle == 'evapack' %}
+              <li class="u-fontSize-basesm c-product-widget-listItem">It comes in two sizes, regular and large</li>
+              <li class="u-fontSize-basesm c-product-widget-listItem">More than 90 different combinations</li>
+              <li class="u-fontSize-basesm c-product-widget-listItem">With a unique anti-theft closing</li>
+            {% elsif product.handle == 'evaclutch-one' %}
+              <li class="u-fontSize-basesm c-product-widget-listItem">A medium size clutch with retractable lids</li>
+              <li class="u-fontSize-basesm c-product-widget-listItem">3 different lid shapes</li>
+              <li class="u-fontSize-basesm c-product-widget-listItem">More than 70 different combinations</li>
+            {% elsif product.handle == 'evaclutch-two' %}
+              <li class="u-fontSize-basesm c-product-widget-listItem">A smaller size clutch with retractable lids</li>
+              <li class="u-fontSize-basesm c-product-widget-listItem">2 different lid shapes</li>
+              <li class="u-fontSize-basesm c-product-widget-listItem">With 50 different variations to choose from</li>
+            {% elsif product.handle == 'evamini' %}
+              <li class="u-fontSize-basesm c-product-widget-listItem">A wallet size handbag</li>
+              <li class="u-fontSize-basesm c-product-widget-listItem">Perfect for all your essentials</li>
+            {% endif %}
+          </ul>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+</aside>

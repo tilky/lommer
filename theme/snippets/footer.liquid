@@ -1,0 +1,136 @@
+<section class="u-bgColor-gray js-sticky-widget-unstick">
+  <div class="o-container u-padTop-x5 u-padBottom-x4">
+    <div class="grid grid--center u-marBottom-x7">
+      <div class="grid__item six-twelfths smo--four-twelfths mdo--three-twelfths u-textAlign-center">
+        <svg class="o-icon u-marBottom" style="font-size: 42px;">
+          <use xlink:href="#icon-shipping"></use>
+        </svg>
+        <h2 class="u-marBottom u-fontSize-medium u-color-grayDark">Shipping worldwide</h2>
+        <p class="u-marBottom-x2 u-color-gray">Check out our delivery policy</p>
+        <a href="{{ pages['delivery-costs'].url }}" class="o-link o-link--underline"><span>Learn more</span><i class="o-link__icon"> ></i></a>
+      </div>
+      <div class="grid__item six-twelfths smo--four-twelfths mdo--three-twelfths u-textAlign-center">
+        <svg class="o-icon u-marBottom" style="font-size: 42px;">
+          <use xlink:href="#icon-help"></use>
+        </svg>
+        <h2 class="u-marBottom u-fontSize-medium u-color-grayDark">Need help?</h2>
+        <p class="u-marBottom-x2 u-color-gray">If you have a question about our products. Get in touch.</p>
+        <a href="{{ pages['contact'].url }}" class="o-link o-link--underline"><span>Contact us now</span><i class="o-link__icon"> ></i></a>
+      </div>
+    </div>
+    
+    <div class="grid grid--center">
+      <div class="grid__item mdo--eight-twelfths lgo--six-twelfths">
+        <div style="padding:10px;background:white">
+          <form action="//lommer.us13.list-manage.com/subscribe/post?u=f935468a03fbf42a1dc93e8dd&amp;id=024089e8df" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" class="c-input-group">
+            <input type="email" value="" name="EMAIL" autocorrect="off" id="mce-EMAIL" autocapitalize="off" placeholder="Sign up to our mailing list" class="o-input-text c-input-group__input" />
+            <span class="c-input-group__btn"><input type="submit" class="o-button o-button--dark-fill u-fontSize-small" value="SUBSCRIBE"></span>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="u-bgColor-white" role="contentinfo">
+
+  <div class="o-container u-padTop-x2 u-padBottom-x2 u-borderBottom-grayLight">
+    <ul class="o-list-horizontal u-textAlign-center">
+      <li class="o-list-horizontal__item">
+        <a href="http://www.pinterest.com/lommerbags/" title="Lommer Pinterest profile" target="_blank" class="o-link">
+          <svg viewBox="0 0 20 20" class="o-icon u-fontSize-large">
+            <use xlink:href="#icon-pinterest-round"></use>
+          </svg>
+        </a>
+      </li>
+      <li class="o-list-horizontal__item">
+        <a href="https://www.facebook.com/Lommer-287495078112901/?fref=ts" title="Lommer Facebook page" target="_blank" class="o-link">
+          <svg viewBox="0 0 20 20" class="o-icon u-fontSize-large">
+            <use xlink:href="#icon-facebook-round"></use>
+          </svg>
+        </a>
+      </li>
+      <li class="o-list-horizontal__item">
+        <a href="https://www.instagram.com/wearelommer/" title="Lommer instagram profile" target="_blank" class="o-link">
+          <svg viewBox="0 0 20 20" class="o-icon u-fontSize-large">
+            <use xlink:href="#icon-instagram-round"></use>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="o-container u-padTop-x3 u-padBottom-x3 u-borderBottom-grayLight">
+    <div class="grid grid--center">
+      <div class="grid__item mdo--eight-twelfths lgo--seven-twelfths u-textAlign-left">
+        <div class="grid u-fontSize-small">
+          <div class="grid__item two-quarters smo--one-quarter u-textAlign-center@smu u-marBottom-x3@smu">
+            <h2 class="u-fontWeight-medium">Main Pages</h2>
+            <ul>
+            {% for link in linklists.footer-main.links %}
+              <li><a href="{{ link.url }}" class="o-link o-link--gray">{{ link.title }}</a></li>
+            {% endfor %}
+            </ul>
+          </div>
+          <div class="grid__item two-quarters smo--one-quarter u-textAlign-center@smu u-marBottom-x3@smu">
+            <h2 class="u-fontWeight-medium">Shop</h2>
+            <ul>
+            {% for link in linklists.footer-shop.links %}
+              <li><a href="{{ link.url }}" class="o-link o-link--gray">{{ link.title }}</a></li>
+            {% endfor %}
+            </ul>
+          </div>
+          <div class="grid__item two-quarters smo--one-quarter u-textAlign-center@smu u-marBottom-x3@smu">
+            <h2 class="u-fontWeight-medium">Shipping</h2>
+            <ul class="u-marBottom">
+              {% for link in linklists.footer-shipping.links %}
+                <li><a href="{{ link.url }}" class="o-link o-link--gray">{{ link.title }}</a></li>
+              {% endfor %}
+            </ul>
+            <h2 class="u-fontWeight-medium">Customer support</h2>
+            <ul class="u-marBottom">
+            {% for link in linklists.footer-support.links %}
+              <li><a href="{{ link.url }}" class="o-link o-link--gray">{{ link.title }}</a></li>
+            {% endfor %}
+            </ul>
+          </div>
+          <div class="grid__item two-quarters smo--one-quarter u-textAlign-center@smu u-marBottom-x3@smu">
+            <h2 class="u-fontWeight-medium">For Businesses</h2>
+            <ul class="u-marBottom">
+            {% for link in linklists.footer-businesses.links %}
+              <li><a href="{{ link.url }}" class="o-link o-link--gray">{{ link.title }}</a></li>
+            {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="o-container">
+    <div class="u-padTop-x2 u-padBottom u-textAlign-center">
+      <svg viewBox="0 0 36 20" height="30" class="u-marRight-gutterHalf">
+        <use xlink:href="#icon-paypal"></use>
+      </svg>
+      <svg viewBox="0 0 23 20" height="30" class="u-marRight-gutterHalf">
+        <use xlink:href="#icon-master"></use>
+      </svg>
+      <svg viewBox="0 0 27 20" height="30" class="u-marRight-gutterHalf">
+        <use xlink:href="#icon-visa"></use>
+      </svg>
+      <svg viewBox="0 0 23 20" height="30" class="u-marRight-gutterHalf">
+        <use xlink:href="#icon-maestro"></use>
+      </svg>
+      <svg viewBox="0 0 17 20" height="30" class="u-marRight-gutterHalf">
+        <use xlink:href="#icon-diners_club"></use>
+      </svg>
+      <svg viewBox="0 0 20 20" height="30" class="u-marRight-gutterHalf">
+        <use xlink:href="#icon-american_express"></use>
+      </svg>
+      <svg viewBox="0 0 52 20" height="20" class="u-marRight-gutterHalf">
+        <use xlink:href="#icon-discover"></use>
+      </svg>
+    </div>
+    <p class="u-textAlign-center u-padBottom-x2 u-fontSize-tiny"><span class="u-color-grayLight">Copyright © {{ 'now' | date: "%Y" }} Lommer P.C. All rights reserved.</span> - <a target="_blank" rel="nofollow" href="https://www.shopify.com/?ref=fooolish" class="o-link o-link--gray">Powered by Shopify</a></p>
+  </div>
+</footer>

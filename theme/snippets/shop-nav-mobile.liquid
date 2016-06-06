@@ -1,0 +1,26 @@
+<div class="u-display-none@mdo">
+  <div class="u-bgColor-gray u-marBottom-x4">
+    <ul class="c-navProduct">
+    {% for link in linklists.shop-mobile-menu.links %}
+      <li class="c-navProduct__item">
+        <a href="{{ link.url }}" class="o-link o-link--black {% if link.active %}is-active{% endif %}">
+          {% if link.object.handle == 'tote-bags' %}
+            <img src="{{ 'evaone.svg' | asset_url }}" height="75" />
+          {% elsif link.object.handle == 'backpacks' %}
+            <img src="{{ 'evapack.svg' | asset_url }}" height="90" />
+          {% elsif link.object.handle == 'clutches' %}
+            <img src="{{ 'evaclutch-one.svg' | asset_url }}" height="35" />
+          {% elsif link.object.handle == 'wallet' %}
+            <img src="{{ 'evamini.svg' | asset_url }}" height="29"/>
+          {% elsif link.object.handle == 'extras' %}
+            <img src="{{ 'extras.svg' | asset_url }}" height="56" />
+          {% endif %}
+          <span class="u-fontSize-tiny">{{ link.title }}</span>
+        </a>
+      </li>
+    {% endfor %}
+    </ul>
+  </div>
+  
+  <h1 class="o-heading-small u-textAlign-center u-color-black u-marBottom-x6">You are viewing the collection "{{ collection.handle }}"</h1>
+</div>

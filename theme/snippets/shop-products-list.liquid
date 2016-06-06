@@ -1,0 +1,18 @@
+<div class="grid__item mdo--eight-tenths">
+  <ul class="grid">
+    {% assign currentHandle = collection.handle %}
+    {% for product in collections[currentHandle].products %}
+      {% for variant in product.variants %}
+        <li class="grid__item six-twelfths lgo--four-twelfths u-textAlign-center u-marBottom c-productBox">
+          <a href="{{ variant.url }}">
+            <img src="{{ variant.image.src | img_url: 'medium' }}" width="228" />
+          </a>
+          <a href="{{ variant.url }}" class="c-productBox__desc o-link o-link--black">
+            <p class="u-fontSize-small u-color-black"><strong>{{ product.title }}</strong> - {{variant.title}}</p>
+            <p class="u-fontWeight-book u-fontSize-small c-productBox__cta">Buy Now</p>
+          </a>
+        </li>
+      {% endfor %}
+    {% endfor %}
+  </ul>
+</div>

@@ -1,0 +1,15 @@
+---
+:api_key: a9ca4dff21fdd2fbadc3c405e3c48be7
+:password: 3fd8557d8717875523316c9dd09abe80
+:store: lommer.myshopify.com
+:theme_id: 109381767
+:whitelist_files:
+- layout/
+- assets/
+- config/
+- snippets/
+- templates/
+- locales/
+:ignore_files:
+- config/settings_data.json
+- README.md

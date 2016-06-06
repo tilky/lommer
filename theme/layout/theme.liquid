@@ -1,0 +1,191 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+
+  <!-- Basic page needs ================================================== -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" type="image/png" />
+
+  <!-- Title and description ================================================== -->
+  <title>
+    {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+  </title>
+
+  {% if page_description %}
+    <meta name="description" content="{{ page_description | escape }}">
+  {% endif %}
+
+  <!-- Helpers ================================================== -->
+  {% include 'social-meta-tags' %}
+  <link rel="canonical" href="{{ canonical_url }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
+
+  <meta name="theme-color" content="{{ settings.color_primary }}">
+
+  <!-- CSS ================================================== -->
+  {{ 'main.css' | asset_url | stylesheet_tag }}
+
+  <!-- Header hook for plugins ================================================== -->
+  {{ content_for_header }}
+  
+  <!-- JS ================================================== -->
+  {% include 'oldIE-js' %}
+  {{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+  {{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' | script_tag }}
+  {{ 'modernizr.min.js' | asset_url | script_tag }}
+  <script src="https://use.typekit.net/can1awe.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  <script src="//d2wy8f7a9ursnm.cloudfront.net/bugsnag-2.min.js" data-apikey="2c6637ee59b6a19716160e282a65a813"></script>
+</head>
+
+<body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
+  
+  {% comment %}
+    Include SVG sprite
+  {% endcomment %}
+  {% include 'icons.svg' %}
+  <div class="u-display-none">{% include 'sprite-default.svg' %}</div>
+  
+  <!-- Nav Drawer -->
+  <div id="NavDrawer" class="drawer drawer--left">
+    <div class="drawer__fixed-header">
+      <div class="drawer__header">
+        <div class="drawer__close drawer__close--left">
+          <button type="button" class="icon-fallback-text drawer__close-button js-drawer-close">
+            <span class="icon icon-x" aria-hidden="true"></span>
+            <span class="fallback-text">{{ 'general.drawers.close_menu' | t }}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="drawer__inner">
+      <!-- begin mobile-nav -->
+      <ul class="mobile-nav">
+        {% for link in linklists.main-menu.links %}
+          {% assign child_list_handle = link.title | handleize %}
+          {% if linklists[child_list_handle].links != blank %}
+            <li class="mobile-nav__item{% unless template == 'index' %}{% if link.active %} mobile-nav__item--active{% endif %}{% endunless %}">
+              <div class="mobile-nav__has-sublist">
+                <a href="{{ link.url }}" class="mobile-nav__link" id="Label-{{ child_list_handle }}">{{ link.title }}</a>
+                <div class="mobile-nav__toggle">
+                  <button type="button" class="mobile-nav__toggle-btn icon-fallback-text" data-aria-controls="Linklist-{{ child_list_handle }}">
+                    <span class="icon-fallback-text mobile-nav__toggle-open">
+                      <span class="icon icon-plus" aria-hidden="true"></span>
+                      <span class="fallback-text">{{ 'general.drawers.expand_submenu' | t }}</span>
+                    </span>
+                    <span class="icon-fallback-text mobile-nav__toggle-close">
+                      <span class="icon icon-minus" aria-hidden="true"></span>
+                      <span class="fallback-text">{{ 'general.drawers.collapse_submenu' | t }}</span>
+                    </span>
+                  </button>
+                </div>
+              </div>
+              <ul class="mobile-nav__sublist" id="Linklist-{{ child_list_handle }}" aria-labelledby="Label-{{ child_list_handle }}" role="navigation">
+                {% for childlink in linklists[child_list_handle].links %}
+                  <li class="mobile-nav__item{% unless template == 'index' %}{% if childlink.active %} mobile-nav__item--active{% endif %}{% endunless %}">
+                    <a href="{{ childlink.url }}" class="mobile-nav__link">{{ childlink.title | escape }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </li>
+          {% else %}
+            <li class="mobile-nav__item{% unless template == 'index' %}{% if link.active %} mobile-nav__item--active{% endif %}{% endunless %}">
+              <a href="{{ link.url }}" class="mobile-nav__link">{{ link.title }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+
+        {% comment %}
+          Spacer element
+        {% endcomment %}
+        <li class="mobile-nav__spacer"></li>
+
+        {% comment %}
+          If customer accounts are enabled, provide login and create account links
+        {% endcomment %}
+        {% if customer %}
+          <li class="mobile-nav__item mobile-nav__item--secondary">
+            <a href="/account">{{ 'layout.customer.account' | t }}</a>
+          </li>
+          <li class="mobile-nav__item mobile-nav__item--secondary">
+            {{ 'layout.customer.log_out' | t | customer_logout_link }}
+          </li>
+        {% else %}
+          <li class="mobile-nav__item mobile-nav__item--secondary">
+            {{ 'layout.customer.log_in' | t | customer_login_link }}
+          </li>
+          <li class="mobile-nav__item mobile-nav__item--secondary">
+            {{ 'layout.customer.create_account' | t | customer_register_link }}
+          </li>
+        {% endif %}
+        {% for link in linklists.footer.links %}
+          <li class="mobile-nav__item mobile-nav__item--secondary"><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+      <!-- //mobile-nav -->
+    </div>
+  </div>
+  
+  <!-- Cart Drawer -->
+  <div id="CartDrawer" class="drawer drawer--right drawer--has-fixed-footer">
+    <div class="drawer__fixed-header">
+      <div class="drawer__header">
+        <div class="drawer__title o-heading-small">Your cart</div>
+        <div class="drawer__close">
+          <button type="button" class="icon-fallback-text drawer__close-button js-drawer-close">
+            <span class="icon icon-x" aria-hidden="true"></span>
+            <span class="fallback-text">{{ 'cart.general.close_cart' | t }}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="drawer__inner">
+      <div id="CartContainer" class="drawer__cart"></div>
+    </div>
+  </div>
+  
+  <!-- Page Content -->
+  <div id="PageContainer" class="is-moved-by-drawer">
+    {% include 'header' %}
+
+    <main class="main-content" role="main">
+      {{ content_for_layout }}
+    </main>
+
+    {% include 'footer' %}
+  </div>
+
+  {% include 'ajax-cart-template' %}
+  {{ 'ajax-cart.js' | asset_url | script_tag }}
+  <!-- JS Scripts -->
+  {{ 'theme.js' | asset_url | script_tag }}
+  {% comment %}
+    Template-specific js
+  {% endcomment %}
+  <script>
+    {% if resetPassword %}
+      $(function() {
+        timber.resetPasswordSuccess();
+      });
+    {% endif %}
+  </script>
+  <script>
+    jQuery(function($) {
+      ajaxCart.init({
+        formSelector: '#AddToCartForm',
+        cartContainer: '#CartContainer',
+        addToCartSelector: '#AddToCart',
+        enableQtySelectors: true,
+        moneyFormat: {{ shop.money_format | json }}
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<div itemscope itemtype="http://schema.org/Product">
+
+  <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+  <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
+
+  {% assign current_variant = product.selected_or_first_available_variant %}
+  
+  <!-- SUBMENU -->
+  {% include 'products-nav' %}
+
+  <!-- BUY -->
+  {% include 'product-buy' %}
+  
+  <!-- INFO -->
+  {% include 'product-info', product: product.handle %}
+
+  <!-- FEATURES -->
+  {% include 'product-feature-first', product: product.handle %}
+
+  <!-- EXTRAS -->
+
+
+{% comment %}
+
+  *IMPORTANT:*
+  This theme uses a customized version of `option_selection.js` to support using radio inputs for
+  color and size variants. The custom version is in `variant_selection.js`.
+
+  If you wish to enable the default dropdowns for size and color
+  you can change the liquid asset tag below from:
+
+  {{ 'variant_selection.js' | asset_url | script_tag }}
+
+  to
+
+  {{ 'option_selection.js' | shopify_asset_url | script_tag }}
+
+  If you use the default `option_selection.js` the labels for the dropdowns will
+  appear outside the dropdown.
+
+  You will also need to change `.radio-wrapper` to `.selector-wrapper` below.
+
+{% endcomment %}
+
+{{ 'option_selection.js' | shopify_asset_url | script_tag }}
+
+<script>
+var selectCallback = function(variant, selector) {
+  timber.productPage({
+    money_format: "{{ shop.money_format }}",
+    variant: variant,
+    selector: selector,
+    translations: {
+      addToCart : "Add to Cart",
+      soldOut : "Sold Out",
+      unavailable : "Unavailable"
+    }
+  });
+};
+
+jQuery(function($) {
+  new Shopify.OptionSelectors('ProductSelect', {
+    product: {{ product | json }},
+    onVariantSelected: selectCallback,
+    enableHistoryState: true
+  });
+
+  // Add label if only one product option and it isn't 'Title'. Could be 'Size'.
+  {% if product.options.size == 1 and product.options.first != 'Title' %}
+    $('.radio-wrapper:eq(0)').prepend('<label for="ProductSelect-option-0" class="single-option-radio__label">{{ product.options.first | escape }}</label>');
+  {% endif %}
+
+  // Hide drop-down selectors if we only have 1 variant and its title contains 'Default'.
+  {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+    $('.selector-wrapper').hide();
+  {% endif %}
+});
+</script>
+
+
+
+
+<script>
+jQuery(document).ready(function($){
+  
+  // Build an array with all product images URL & alt
+  window.productImages = [];
+  {% for image in product.images %}
+    var formatedAlt = "{{ image.alt }}".split('/');
+    window.productImages.push({
+      url: {
+        'medium': '{{ image | product_img_url: "medium" }}',
+        'grande': '{{ image | img_url: "grande" }}',
+        '2048':   '{{ image | img_url: "2048x2048" }}'
+      },
+      alt: formatedAlt
+    });
+  {% endfor %}
+});
+</script>

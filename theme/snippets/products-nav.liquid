@@ -1,0 +1,26 @@
+<nav class="u-bgColor-gray u-marBottom-x4">
+  <ul class="c-navProduct">
+  {% for link in linklists.product-submenu.links %}
+    <li class="c-navProduct__item">
+      <a href="{{ link.url }}" class="o-link o-link--black {% if link.active %}is-active{% endif %}">
+        {% if link.object.handle == 'evaone' %}
+          <img src="{{ 'evaone.svg' | asset_url }}" height="75" />
+        {% elsif link.object.handle == 'evatwo' %}
+          <img src="{{ 'evatwo.svg' | asset_url }}" height="60" />
+        {% elsif link.object.handle == 'evapack' %}
+          <img src="{{ 'evapack.svg' | asset_url }}" height="90" />
+        {% elsif link.object.handle == 'evaclutch-one' %}
+          <img src="{{ 'evaclutch-one.svg' | asset_url }}" height="35" />
+        {% elsif link.object.handle == 'evaclutch-two' %}
+          <img src="{{ 'evaclutch-two.svg' | asset_url }}" height="35" />
+        {% elsif link.object.handle == 'evamini' %}
+          <img src="{{ 'evamini.svg' | asset_url }}" height="29"/>
+        {% elsif link.object.handle == 'extras' %}
+          <img src="{{ 'extras.svg' | asset_url }}" height="56" />
+        {% endif %}
+        <span class="u-fontSize-tiny">{{ link.title }}</span>
+      </a>
+    </li>
+  {% endfor %}
+  </ul>
+</nav>

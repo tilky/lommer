@@ -1,0 +1,70 @@
+<!-- begin header -->
+<div class="header-wrapper">
+  <header class="site-header" role="banner">
+    <div class="o-container">
+      <div class="grid--full grid--table">
+        <div class="grid__item one-quarter u-display-none">
+          <div class="site-nav--mobile">
+            <button type="button" class="icon-fallback-text site-nav__link js-drawer-open-left" aria-controls="NavDrawer">
+              <span class="icon icon-hamburger" aria-hidden="true"></span>
+              <span class="fallback-text">{{ 'general.drawers.navigation' | t }}</span>
+            </button>
+          </div>
+        </div>
+        <div class="grid__item large--one-third medium-down--one-half">
+          <h1 class="site-header__logo large--left" itemscope itemtype="http://schema.org/Organization">
+            <a href="/" itemprop="url" class="site-header__logo-link u-float-left">
+              <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo" height="19">
+            </a>
+          </h1>
+        </div>
+        <div class="grid__item large--two-thirds u-textAlign-right u-display-none@mdu">
+          {% comment %}
+            List out your main-menu linklist (default)
+
+            More info on linklists:
+              - http://docs.shopify.com/themes/liquid-variables/linklists
+          {% endcomment %}
+          <!-- begin site-nav -->
+          <ul class="site-nav" id="AccessibleNav">
+            <li class="site-nav__item site-nav--compress__menu u-display-none">
+              <button type="button" class="icon-fallback-text site-nav__link site-nav__link--icon js-drawer-open-left" aria-controls="NavDrawer">
+                <span class="icon icon-hamburger" aria-hidden="true"></span>
+                <span class="fallback-text">{{ 'general.drawers.navigation' | t }}</span>
+              </button>
+            </li>
+            {% for link in linklists.main-menu.links %}
+              <li class="site-nav__item site-nav__expanded-item{% unless template == 'index' %}{% if link.active %} site-nav--active{% endif %}{% endunless%}">
+                <a href="{{ link.url }}" class="site-nav__link o-link o-link--black">{{ link.title }}</a>
+              </li>
+            {% endfor %}
+
+            <li class="site-nav__item">
+              <a href="/cart" class="site-nav__link site-nav__link--icon cart-link js-drawer-open-right" aria-controls="CartDrawer">
+                <span class="icon-fallback-text">
+                  <span>CART</span>
+                  <span class="icon icon-cart" aria-hidden="true"></span>
+                </span>
+                <span class="cart-link__bubble{% if cart.item_count > 0 %} cart-link__bubble--visible{% endif %}"></span>
+              </a>
+            </li>
+
+          </ul>
+          <!-- //site-nav -->
+        </div>
+        <div class="grid__item u-display-none one-quarter">
+          <div class="site-nav--mobile text-right">
+            <a href="/cart" class="site-nav__link cart-link js-drawer-open-right" aria-controls="CartDrawer">
+              <span class="icon-fallback-text">
+                <span class="icon icon-cart" aria-hidden="true"></span>
+                <span class="fallback-text">{{ 'layout.cart.title' | t }}</span>
+              </span>
+              <span class="cart-link__bubble{% if cart.item_count > 0 %} cart-link__bubble--visible{% endif %}"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+</div>

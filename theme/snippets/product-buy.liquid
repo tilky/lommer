@@ -1,0 +1,70 @@
+<div class="o-container">
+  <h1 class="o-heading-normal u-fontWeight-medium u-textTransform-upperCase u-marBottom u-color-black u-display-none@smo u-textAlign-center" itemprop="name">{{ product.title }}</h1>
+  <div class="grid">
+    <div class="grid__item lgo--seven-twelfths u-marBottom-x2@smu c-product-slider">
+      {% assign current_variant = product.selected_or_first_available_variant %}
+
+      <!-- Featured slider -->
+      <div class="c-product-slider-featured js-slick-featured u-marBottom-x3">
+        {% for image in product.images %}
+          {% if image.alt == current_variant.image.alt %}
+            <div>
+              <a href="{{ image | img_url: '2048x2048' }}" alt="{{ image.alt }}" class="js-mfp-product">
+                <img src="{{ image | img_url: 'grande' }}">
+              </a>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <!-- Thumbnails -->
+      <div class="c-product-slider-thumbs js-slick-thumbs u-marBottom-x5">
+        {% for image in product.images %}
+          {% if image.alt == current_variant.image.alt %}
+            <div>
+              <img src="{{ image | img_url: 'medium' }}" alt="{{ image.alt | escape }}" />
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+    </div>
+
+    <div class="grid__item product-single__meta--wrapper lgo--four-twelfths">
+      <div class="product-single__meta">
+        <h1 class="o-heading-normal u-fontWeight-medium u-textTransform-upperCase u-marBottom u-color-black u-display-none@smu" itemprop="name">{{ product.title }}</h1>
+        <div class="u-fontWeight-light u-marBottom u-color-black" itemprop="description">{{ product.description }}</div>
+        <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+      
+          <p id="ProductPrice" class="product-single__price{% if product.compare_at_price > product.price %} on-sale{% endif %} u-fontSize-large u-marBottom-x2 u-color-black u-fontWeight-thin" itemprop="price">
+            {{ current_variant.price | money }}
+          </p>
+
+          <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+          <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
+          
+          <p class="u-fontWeight-thin">BUILD YOUR BAG</p>
+          <form action="/cart/add" method="post" enctype="multipart/form-data" class="product-single__form u-marBottom-x2 c-product-options" id="AddToCartForm">
+            <select name="id" id="ProductSelect" class="product-single__variants">
+              {% for variant in product.variants %}
+                {% if variant.available %}
+                  <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+                {% else %}
+                  <option disabled="disabled">
+                    {{ variant.title }} - Sold out
+                  </option>
+                {% endif %}
+              {% endfor %}
+            </select>
+
+            <div class="product-single__add-to-cart c-product-options-submit">
+              <button type="submit" name="add" id="AddToCart" class="o-button o-button--dark-fill">
+                <span id="AddToCartText">Add to cart</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

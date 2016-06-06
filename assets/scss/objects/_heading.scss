@@ -1,0 +1,31 @@
+// Headings
+// 55px - xlarge
+// 50px - large
+// 40px - medium
+// 36px - normal
+// 25px - small
+
+.o-heading-xlarge {
+  font-size: 55px;
+  line-height: $baselineGrid*6;
+}
+
+.o-heading-large {
+  font-size: 50px;
+  line-height: $baselineGrid*5;
+}
+
+.o-heading-medium {
+  font-size: 40px;
+  line-height: $baselineGrid*4;
+}
+
+.o-heading-normal {
+  font-size: 36px;
+  line-height: $baselineGrid*4;
+}
+
+.o-heading-small {
+  font-size: 25px;
+  line-height: $baselineGrid*3;
+}

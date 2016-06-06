@@ -1,0 +1,59 @@
+.u-display-none {
+  display: none !important;
+}
+
+.u-display-block {
+  display: block !important;
+}
+
+.u-display-inlineBlock {
+  display: inline-block !important;
+}
+
+.u-opacity-none {
+  opacity: 0;
+  &\@smo {
+    @media #{bp(smo)} { opacity: 0 !important; }
+  }
+}
+
+
+.u-overflow-hidden {
+  overflow: hidden !important;
+}
+    
+@each $name, $size in $breakpoints {
+  @media #{$size} {
+    .u-display-none\@#{$name} {
+      display: none !important;
+    }
+    
+    .u-overflow-hidden\@#{$name} {
+      overflow: hidden !important;
+    }
+    
+    .u-display-block\@#{$name} {
+      display: block;
+    }
+    
+    .u-display-flex\@#{$name} {
+      display: flex;
+    }
+ 
+  }
+  
+}
+
+.u-hide {
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px; width: 1px;
+  margin: -1px; padding: 0; border: 0;
+}

@@ -1,0 +1,81 @@
+/*
+ * SVG fill
+ */
+.u-fill-gray {
+  fill: $c_gray !important;
+}
+
+.u-fill-white {
+  fill: #fff !important;
+}
+
+
+/*
+ * Text color
+ */
+.u-color-gray {
+  color: $c_gray !important;
+}
+.u-color-grayDark {
+  color: $c_gray-dark !important;
+}
+
+.u-color-white {
+  color: $c_white !important;
+}
+
+.u-color-black {
+  color: $c_black !important;
+}
+
+
+/*
+ * Background color
+ */
+.u-bgColor-grayLight {
+  background-color: #f7f7f7 !important;
+}
+.u-bgColor-gray {
+  background-color: $c_gray-lighter !important;
+}
+.u-bgColor-white {
+  background-color: #fff !important;
+}
+ 
+/*
+ * Border color
+ */
+.u-border-grayLight {
+  border: 1px solid $c_gray-light !important;
+}
+.u-borderBottom-grayLight {
+  border-bottom: 1px solid $c_gray-light !important;
+}
+.u-borderTop-grayLight {
+  border-top: 1px solid $c_gray-light !important;
+}
+.u-borderLeft-grayLight {
+  border-left: 1px solid $c_gray-light !important;
+}
+.u-borderRight-grayLight {
+  border-right: 1px solid $c_gray-light !important;
+}
+.u-borderTop-semiTransparent {
+  border-top: 1px solid rgba(255,255,255,0.4)
+}
+.u-borderRight-semiTransparent {
+  border-right: 1px solid rgba(255,255,255,0.4) 
+}
+.u-borderLeft-semiTransparent {
+  border-left: 1px solid rgba(255,255,255,0.4) 
+}
+.u-borderBottom-semiTransparent {
+  border-bottom: 1px solid rgba(255,255,255,0.4) 
+}
+
+/*
+ * Box shadow
+ */
+.u-boxShadow-screenshot {
+  box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.15);
+}

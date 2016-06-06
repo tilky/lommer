@@ -1,0 +1,12 @@
+.o-bg-cover {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+  &--fullHeight {
+    background-size: auto 100%;
+  }
+
+}

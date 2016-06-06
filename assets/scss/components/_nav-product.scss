@@ -1,0 +1,46 @@
+.c-navProduct {
+  padding-top: 20px;
+  padding-bottom: 18px;
+  // box-shadow: inset -75px 0px 100px -90px rgba(0,0,0,0.25), inset 75px 0px 100px -90px  rgba(0,0,0,0.25);
+  text-align: center;
+  width: 100%;
+  list-style: none;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  @include breakpoint($sm) {
+    box-shadow: none;
+  }
+  
+  &__item {
+    display: inline-block;
+    margin-left: 17px;
+    margin-right: 17px;
+    
+    > a {
+      display: block;
+      transition: opacity 0.3s;
+
+      &:hover {
+        opacity: 0.5;
+      }
+      
+      &.is-active {
+        opacity: 0.5;
+      }
+
+    }
+    
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+    
+  }
+  
+}

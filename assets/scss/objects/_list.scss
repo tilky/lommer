@@ -1,0 +1,19 @@
+.o-list-horizontal {
+  margin: 0;
+  list-style: none;
+
+  &__item {
+    display: inline-block;
+    margin: 0;
+    margin-right: 15px;
+    
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.o-list-styled {
+  list-style-type: disc;
+  list-style-position: inside;
+}

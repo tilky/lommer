@@ -1,0 +1,9 @@
+.c-sticky-nav {
+  transition: all 0.2s;
+
+  &.is_stuck {
+    margin: 0;
+    background: rgba(238,238,238,0.91);
+    font-size: 18px;
+  }
+}

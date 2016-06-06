@@ -1,0 +1,10 @@
+.o-img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  
+  &--centered {
+    margin: 0 auto;
+  }
+
+}

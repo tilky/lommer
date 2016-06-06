@@ -1,0 +1,66 @@
+ /*
+ * Floats
+ */
+.u-float-right {
+  float: right !important;
+}
+.u-float-left {
+  float: left !important;
+}
+
+
+
+/*
+ * Block element alignment
+ */
+.u-marHorizontal-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+/*
+ * Text align
+ */
+.u-textAlign-center {
+  text-align: center !important;
+}
+
+.u-textAlign-left {
+  text-align: left !important;
+}
+.u-textAlign-right {
+  text-align: right !important;
+}
+
+
+@each $name, $size in $breakpoints {
+
+  @media #{$size} {
+
+    /*
+     * Floats
+     */
+    .u-float-right\@#{$name} {
+      float: right !important;
+    }
+    
+    
+    /*
+     * Text align
+     */
+    .u-textAlign-center\@#{$name} {
+      text-align: center !important;
+    }
+    
+    .u-textAlign-left\@#{$name} {
+      text-align: left !important;
+    }
+    .u-textAlign-right\@#{$name} {
+      text-align: right !important;
+    }
+    
+  }
+  
+}

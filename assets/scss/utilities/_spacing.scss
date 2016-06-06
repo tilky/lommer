@@ -1,0 +1,120 @@
+/*
+ * Margin and padding classes.
+ */
+ 
+.u-marBottom-tiny {
+  margin-bottom: 5px; 
+}
+
+.u-marBottom-half {
+  margin-bottom: $baselineGrid/2 !important;
+}
+
+.u-marRight-gutterHalf { margin-right: $gutter/2; }
+.u-marRight-gutter { margin-right: $gutter; }
+.u-marRight-icon { margin-right: 20px !important; }
+.u-marRight-gutterx2 { margin-right: $gutter*2; }
+
+// Baseline grid
+
+/*
+ * Default without breakpoints
+ */
+.u-marTop {
+  margin-top: $baselineGrid !important;
+}
+.u-marBottom {
+  margin-bottom: $baselineGrid !important;
+}
+// Paddings
+.u-padTop {
+  padding-top: $baselineGrid !important;
+}
+.u-padBottom {
+  padding-bottom: $baselineGrid !important;
+}
+
+@for $i from 2 through 23 {
+  // Margins
+  .u-marTop-x#{$i} {
+    margin-top: $baselineGrid*$i !important;
+  }
+  .u-marBottom-x#{$i} {
+    margin-bottom: $baselineGrid*$i !important;
+  }
+  
+  // Paddings
+  .u-padTop-x#{$i} {
+    padding-top: $baselineGrid*$i !important;
+  }
+  .u-padBottom-x#{$i} {
+    padding-bottom: $baselineGrid*$i !important;
+  }
+  .u-padVertical-x#{$i} {
+    padding-top: $baselineGrid*$i !important;
+    padding-bottom: $baselineGrid*$i !important;
+  }
+  .u-padHorizontal-x#{$i} {
+    padding-left: $baselineGrid*$i !important;
+    padding-right: $baselineGrid*$i !important;
+  }
+}
+
+/*
+ * For each breakpoint
+ */
+@each $name, $size in $breakpoints {
+  @media #{$size} {
+    
+    // Margins
+    .u-marTop\@#{$name} {
+      margin-top: $baselineGrid !important;
+    }
+    .u-marBottom\@#{$name} {
+      margin-bottom: $baselineGrid !important;
+    }
+    
+    // Paddings
+    .u-padTop\@#{$name} {
+      padding-top: $baselineGrid !important;
+    }
+    .u-padBottom\@#{$name} {
+      padding-bottom: $baselineGrid !important;
+    }
+    .u-padVertical\@#{$name} {
+      padding-top: $baselineGrid !important;
+      padding-bottom: $baselineGrid !important;
+    }
+    .u-padHorizontal\@#{$name} {
+      padding-left: $baselineGrid !important;
+      padding-right: $baselineGrid !important;
+    }
+    
+    @for $i from 2 through 23 {
+      
+      // Margins
+      .u-marTop-x#{$i}\@#{$name} {
+        margin-top: $baselineGrid*$i !important;
+      }
+      .u-marBottom-x#{$i}\@#{$name} {
+        margin-bottom: $baselineGrid*$i !important;
+      }
+      
+      // Paddings
+      .u-padTop-x#{$i}\@#{$name} {
+        padding-top: $baselineGrid*$i !important;
+      }
+      .u-padBottom-x#{$i}\@#{$name} {
+        padding-bottom: $baselineGrid*$i !important;
+      }
+      .u-padVertical-x#{$i}\@#{$name} {
+        padding-top: $baselineGrid*$i !important;
+        padding-bottom: $baselineGrid*$i !important;
+      }
+      .u-padHorizontal-x#{$i}\@#{$name} {
+        padding-left: $baselineGrid*$i !important;
+        padding-right: $baselineGrid*$i !important;
+      }
+    }
+  }
+}

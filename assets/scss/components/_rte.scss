@@ -1,0 +1,117 @@
+/*================ Module | Rich Text Editor ================*/
+.rte {
+  @include clearfix;
+  margin-bottom: $gutter / 2;
+
+  p,
+  ul,
+  ol,
+  table {
+    margin-bottom: 25px;
+  }
+
+  ul {
+    ul {
+      margin-bottom: 0;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .text-link {
+    border-bottom: 1px solid $colorLink;
+
+    &:hover,
+    &:focus {
+      border-bottom: 1px solid $colorLinkHover;
+    }
+  }
+
+  // Add some top margin to headers from the rich text editor
+  h1, h4, h5, h6 {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+
+  h2, h3 {
+    margin-top: 4em;
+    margin-bottom: 2em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    &:first-child {
+      margin-top: 0;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  > div {
+    margin-bottom: $gutter / 2;
+  }
+
+  li {
+    margin-bottom: 0;
+  }
+
+  > p:last-child {
+    margin-bottom: 0;
+  }
+
+  table {
+    table-layout: fixed;
+  }
+}
+
+.text-center .rte,
+.text-center.rte {
+  ul,
+  ol {
+    list-style-position: inside;
+    margin-left: 0;
+  }
+}
+
+.rte--nomargin {
+  margin-bottom: 0;
+}
+
+/*================ Indented article/page images and blockquotes ================*/
+.rte--indented-images {
+  img:not([style]),
+  img[style="float: none;"] {
+    max-width: 120%;
+    margin-left: -10%;
+
+    // Class added if image isn't wider than parent
+    &.rte__no-indent {
+      margin: 0 auto;
+      max-width: 100%;
+    }
+  }
+
+  img[style="float: right;"] {
+    margin: 0 -10% ($gutter / 2) ($gutter / 2);
+  }
+
+  img[style="float: left;"] {
+    margin: 0 ($gutter / 2) ($gutter / 2) -10%;
+  }
+}
+
+// @include at-query($min, $large) {
+//   .rte blockquote {
+//     width: 120%;
+//     margin-left: -10%;
+//     padding-left: 0;
+//     padding-right: 0;
+
+//     p {
+//       margin-bottom: 0;
+//     }
+//   }
+// }

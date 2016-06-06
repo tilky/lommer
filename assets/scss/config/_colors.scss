@@ -1,0 +1,69 @@
+$c_white: #fff;
+
+$c_black: #000;
+
+$c_gray-medium: #6F6F6F;
+$c_gray-dark: #4A4A4A;
+$c_gray: #9B9B9B;
+$c_gray-light: #E4E4E4;
+$c_gray-lighter: #F9F9F9;
+
+
+/*================ Color variables ================*/
+$colorPrimary: $c_black;
+$colorSecondary: $c_white;
+
+// Button colors
+$colorBtnPrimary: $colorPrimary;
+$colorBtnPrimaryHover: lighten($colorBtnPrimary, 12%);
+$colorBtnPrimaryActive: adaptive-color($colorPrimary, 24%);
+$colorBtnPrimaryText: color-control($colorPrimary);
+
+$colorBtnSecondary: $colorSecondary;
+$colorBtnSecondaryHover: lighten($colorBtnSecondary, 10%);
+$colorBtnSecondaryActive: adaptive-color($colorSecondary, 10%);
+$colorBtnSecondaryText: color-control($colorSecondary);
+
+// Text link colors
+$colorLink: $colorSecondary;
+$colorLinkHover: $colorPrimary;
+
+// Text colors
+$colorTextBody: $c_black;
+
+// Backgrounds
+$colorBody: $c_black;
+$colorProductBackground: #ccc;
+$colorInputBg: $c_black;
+$colorNewsletter: #ccc;
+
+// Border colors
+$colorBorder: $c_black;
+
+
+// Sale tag color
+$colorSaleTag: red;
+
+// Nav and dropdown link background
+$colorNav: #000;
+$colorNavText: #000;
+
+// Helper colors
+$disabledGrey: #f6f6f6;
+$disabledBorder: darken($disabledGrey, 25%);
+$errorRed: #d02e2e;
+$errorRedBg: #fff6f6;
+$successGreen: #56ad6a;
+$successGreenBg: #ecfef0;
+
+// Drawer sizes and colors
+$drawerNavWidth: 300px;
+$drawerCartWidth: 300px;
+$drawerCartWidthLarge: 400px; // small-up width
+$drawerHeaderHeight: 80px;
+$drawerCartFooterHeight: 130px; // default, overwritten by JS
+$colorDrawers: $c_gray-lighter;
+$colorDrawerBorder: $c_gray-light;
+$colorDrawerText: $c_gray-dark;
+$colorDrawerButton: $c_gray-dark;
+$drawerTransition: 'all 0.35s cubic-bezier(0.46, 0.01 , 0.32, 1)';

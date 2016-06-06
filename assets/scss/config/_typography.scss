@@ -1,0 +1,43 @@
+/* =========================================
+		Typography
+   ========================================= */
+/**
+ * Prefix typography vars with $t_
+ */
+
+// Font family
+$t_ff_brand: "futura-pt", sans-serif;
+
+// Font size
+$t_fs_base: 18px;
+
+// Font weight
+$t_fw_light: 300;
+$t_fw_book: 400;
+$t_fw_medium: 500;
+$t_fw_heavy: 700;
+$t_fw_extraBold: 800;
+
+// Line height
+$t_lh_base: 24px;
+
+// Baseline
+$baselineGrid: 12px;
+
+
+/*================ TO BE REMOVED ================*/
+
+/*================ Typography ================*/
+$headerFontStack: $t_ff_brand;
+$headerFontWeight: $t_fw_light;
+$headerBaseFontSize: 36px;
+
+$bodyFontStack: $t_ff_brand;
+$baseFontSize: 18px; // Henseforth known as 1em
+
+$accentFontStack: $t_ff_brand;
+$accentFontWeight: $t_fw_book;
+
+
+$socialIconFontStack: 'icons';
+$socialIconFontStack: 'icons';

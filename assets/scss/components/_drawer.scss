@@ -1,0 +1,220 @@
+/*================ Partials | Drawers ================*/
+.js-drawer-open {
+  overflow: hidden;
+}
+
+.drawer {
+  display: none;
+  position: fixed;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  top: 0;
+  bottom: 0;
+  padding: 0 ($gutter / 2) ($gutter / 2);
+  max-width: 95%;
+  z-index: $zindexDrawer;
+  color: $colorDrawerText;
+  background-color: $colorDrawers;
+  @include transition($drawerTransition);
+  outline: none;
+  border-left: 1px solid #D6D6D6;
+
+  // @include at-query($min, $large) {
+  //   padding: 0 $gutter $gutter;
+  // }
+
+  // a {
+  //   color: $colorDrawerText;
+
+  //   &:hover {
+  //     color: $colorDrawerText;
+  //   }
+  // }
+
+  // input[type="text"],
+  // input[type="email"],
+  // input[type="number"],
+  // textarea {
+  //   border-color: $colorDrawerBorder;
+  // }
+
+}
+
+.drawer--left {
+  width: $drawerNavWidth;
+  left: -$drawerNavWidth;
+
+  .js-drawer-open-left & {
+    display: block;
+    @include transform(translateX($drawerNavWidth));
+
+    .lt-ie9 & {
+      left: 0;
+    }
+  }
+}
+
+.drawer--right {
+  width: $drawerCartWidth;
+  right: -$drawerCartWidth;
+
+  // @include at-query($min, $postSmall) {
+  //   width: $drawerCartWidthLarge;
+  //   right: -$drawerCartWidthLarge;
+  // }
+
+  .js-drawer-open-right & {
+    display: block;
+    @include transform(translateX(-$drawerCartWidth));
+
+    // @include at-query($min, $postSmall) {
+    //   @include transform(translateX(-$drawerCartWidthLarge));
+    // }
+
+    .lt-ie9 & {
+      right: 0;
+    }
+  }
+}
+
+#PageContainer {
+  overflow: hidden;
+}
+
+.is-moved-by-drawer {
+  @include transition($drawerTransition);
+
+  .js-drawer-open-left & {
+    @include transform(translateX($drawerNavWidth));
+  }
+
+  .js-drawer-open-right & {
+    @include transform(translateX(-$drawerCartWidth));
+
+    // @include at-query($min, $postSmall) {
+    //   @include transform(translateX(-$drawerCartWidthLarge));
+    // }
+  }
+}
+
+.drawer__header {
+  display: table;
+  height: $drawerHeaderHeight;
+  width: 100%;
+  margin-bottom: $gutter / 2;
+  border-bottom: 1px solid $colorDrawerBorder;
+}
+
+.drawer__title,
+.drawer__close {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.drawer__title {
+  width: 100%;
+}
+
+.drawer__close {
+  width: 1%;
+  text-align: center;
+}
+
+// Button sits on right by default
+.drawer__close-button {
+  position: relative;
+  right: -20px;
+  height: 100%;
+  padding: 0 20px;
+  color: inherit;
+  appearance: none;
+  background: transparent;
+  border: 0;
+}
+
+// Rare use case left close button
+.drawer__close--left {
+  text-align: left;
+
+  .drawer__close-button {
+    right: auto;
+    left: -20px;
+  }
+}
+
+
+
+// .drawer__title {
+//   @include headerFontStack;
+//   font-size: em(24px);
+// }
+
+
+/*================ Partials | Theme drawer overrides ================*/
+
+/*================ Override drawer scrolling to accommodate fixed header/footers ================*/
+.drawer {
+  overflow: hidden;
+}
+
+.drawer__inner {
+  position: absolute;
+  top: $drawerHeaderHeight;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: ($gutter / 2) ($gutter / 2) 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+
+  // @include at-query($min, $large) {
+  //   padding-left: $gutter;
+  //   padding-right: $gutter;
+  // }
+
+  .drawer--has-fixed-footer & {
+    overflow: hidden;
+  }
+}
+
+/*================ Drawer Fixed Headers ================*/
+.drawer__fixed-header {
+  position: absolute;
+  top: 0;
+  left: $gutter / 2;
+  right: $gutter / 2;
+  height: $drawerHeaderHeight;
+  overflow: visible; // for close button hit area
+
+  // @include at-query($min, $large) {
+  //   left: $gutter;
+  //   right: $gutter;
+  // }
+}
+
+.drawer__header {
+  padding: ($gutter / 2) 0;
+  margin: 0;
+}
+
+// @include at-query($max, $medium) {
+//   .drawer__close-button {
+//     .icon {
+//       font-size: em(25px);
+//     }
+//   }
+// }
+
+// @include at-query($min, $postSmall) {
+//   .drawer__close-button {
+//     right: 0;
+//   }
+// }
+
+
+// @include at-query($min, $xlarge) {
+//   .drawer__close-button {
+//     right: -25px;
+//   }
+// }

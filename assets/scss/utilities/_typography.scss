@@ -1,0 +1,120 @@
+/*
+ * Font weight
+ */
+
+.u-fontWeight-light {
+  font-weight: $t_fw_light !important;
+}
+
+.u-fontWeight-book {
+  font-weight: $t_fw_book !important;
+}
+
+.u-fontWeight-medium {
+  font-weight: $t_fw_medium !important;
+}
+
+
+
+/*
+ * Font size
+ */
+.u-fontSize-large {
+  font-size: 22px !important;
+}
+.u-fontSize-medium {
+  font-size: 20px !important;
+}
+.u-fontSize-base {
+  font-size: 18px !important;
+}
+.u-fontSize-base {
+  font-size: 18px !important;
+}
+.u-fontSize-basesm {
+  font-size: 16px !important;
+}
+.u-fontSize-small {
+  font-size: 14px !important;
+}
+.u-fontSize-tiny {
+  font-size: 12px !important;
+}
+
+// Text
+// 22px - large
+// 20px - medium
+// 18px (base)
+// 14px - small
+// 12px - tiny
+
+/*
+ * Vertical align
+ */
+.u-verticalAlign-top {
+  vertical-align: top !important;
+}
+
+.u-verticalAlign-bottom {
+  vertical-align: bottom !important;
+}
+
+.u-verticalAlign-textBottom {
+  vertical-align: text-bottom !important;
+}
+
+.u-verticalAlign-middle {
+  vertical-align: middle !important;
+}
+
+
+
+/*
+ * Line height
+ */
+.u-lineHeight {
+  line-height: $baselineGrid !important;
+}
+
+.u-lineHeight-x3 {
+  line-height: $baselineGrid*3!important;
+}
+.u-lineHeight-x4 {
+  line-height: $baselineGrid*4!important;
+}
+
+
+
+/*
+ * Letter spacing
+ */
+.u-letterSpacing-1 {
+  letter-spacing: 1px;
+}
+.u-letterSpacing-medium {
+  letter-spacing: 1.5px;
+}
+.u-letterSpacing-2 {
+  letter-spacing: 2px !important;
+}
+
+
+
+/*
+ * White space
+ */
+.u-whiteSpace-nowrap {
+  white-space: nowrap !important;
+}
+
+
+
+/*
+ * Text Transform
+ */
+.u-textTransform-upperCase {
+  text-transform: uppercase !important;
+}
+.u-textTransform-capitalize {
+  text-transform: capitalize !important;
+}

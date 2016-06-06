@@ -1,0 +1,32 @@
+.c-product-slider {
+  
+  .slick-slide:focus {
+    outline: none;
+  }
+
+  &-featured {
+    
+    img {
+      width: 450px;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+    
+  }
+  
+  &-thumbs {
+    width: 50%;
+    margin: 0 auto;
+    
+    .slick-slide {
+      margin-right: 24px;
+    }
+    
+    img {
+      max-width: 100px;
+      margin: 0 auto;
+    }
+    
+  }
+  
+}

@@ -1,0 +1,23 @@
+.u-width-90 {
+  width: 90% !important;
+  
+  &\@mdo {
+    @media #{bp(mdo)} { width: 90% !important; }
+  }
+}
+
+.u-width-half {
+  width: 50% !important;
+}
+
+.u-width-full {
+  width: 100% !important;
+}
+
+.u-maxWidth-full {
+  max-width: 100% !important;
+}
+
+.u-height-viewport {
+  height: 100vh;
+}

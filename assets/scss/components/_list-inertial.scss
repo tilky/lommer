@@ -1,0 +1,7 @@
+.c-list-intertial {
+  box-shadow: inset -75px 0px 100px -90px rgba(0,0,0,0.25), inset 75px 0px 100px -90px  rgba(0,0,0,0.25);
+  
+  @include breakpoint($small) {
+    box-shadow: none;
+  }
+}

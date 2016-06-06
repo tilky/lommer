@@ -1,0 +1,83 @@
+@each $name, $size in $breakpoints {
+
+  @media #{$size} {
+
+    /*************
+     SIZES
+     *************/
+    .u-cellSize-2of12\@#{$name} {
+      flex-basis: auto !important;
+      width: 16.666666667% !important;
+    }
+    
+    .u-cellSize-3of12\@#{$name} {
+      flex-basis: auto !important;
+      width: 25% !important;
+    }
+    
+    .u-cellSize-4of12\@#{$name} {
+      flex-basis: auto !important;
+      width: 33.333333333% !important;
+    }
+    
+    .u-cellSize-5of12\@#{$name} {
+      flex-basis: auto !important;
+      width: 41.666666667% !important;
+    }
+    
+    .u-cellSize-6of12\@#{$name} {
+      flex-basis: auto !important;
+      width: 50% !important;
+    }
+    
+    .u-cellSize-7of12\@#{$name} {
+      flex-basis: auto !important;
+      width: 58.333333333% !important;
+    }
+    
+    .u-cellSize-8of12\@#{$name} {
+      flex-basis: auto !important;
+      width: 66.666666667% !important;
+    }
+    
+    .u-cellSize-9of12\@#{$name} {
+      flex-basis: auto !important;
+      width: 75% !important;
+    }
+    
+    .u-cellSize-10of12\@#{$name} {
+      flex-basis: auto !important;
+      width: 83.333333333% !important;
+    }
+    
+    .u-cellSize-11of12\@#{$name} {
+      flex-basis: auto !important;
+      width: 91.666666667% !important;
+    }
+    
+    
+    /*************
+     OFFSETS
+     *************/
+    .u-cellBefore-1of12\@#{$name} {
+      margin-left: 8.333333333% !important;
+    }
+    .u-cellAfter-1of12\@#{$name} {
+      margin-right: 8.333333333% !important;
+    }
+    .u-cellBefore-2of12\@#{$name} {
+      margin-left: 16.666666667% !important;
+    }
+    
+    .u-cellBefore-3of12\@#{$name} {
+      margin-left: 25% !important;
+    }
+    
+    .u-cellBefore-6of12\@#{$name} {
+      margin-left: 50% !important;
+    }
+    
+
+  }
+  
+}

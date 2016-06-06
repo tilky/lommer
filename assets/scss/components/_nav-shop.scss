@@ -1,0 +1,51 @@
+.c-nav-shop {
+  
+  &__title {
+    font-weight: $t_fw_medium;
+    border-bottom: 1px solid #979797;
+    margin-bottom: 4px;
+    margin-bottom: 10px;
+  }
+  
+  &-list {
+    list-style: none;
+  }
+
+  &__item {
+    text-transform: uppercase;
+    font-weight: $t_fw_book;
+    
+    &.is-active {
+      background-image: url('{{ "arrow-right.svg" | asset_url }}');
+      background-position: 0px center;
+      background-size: 5px 10px;
+      background-repeat: no-repeat;
+      > a { color: $c_gray !important; }
+    }
+    
+    // If is active and has submenu
+    &.is-active.has-submenu {
+      // Do not show the arrow
+      background: #fff;
+
+      // Show the subnav
+      .c-nav-shop-sublist {
+        display: block;
+      }
+
+    }
+
+  }
+  
+  &-sublist {
+    display: none;
+    padding-left: 10px;
+    list-style: none;
+    
+    .c-nav-shop__item {
+      padding-left: 10px;
+    }
+
+  }
+  
+}

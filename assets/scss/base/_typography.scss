@@ -1,0 +1,46 @@
+/*================ Partials | Typography styles ================*/
+body,
+input,
+textarea,
+button,
+select {
+  font-size: $t_fs_base;
+  line-height: $t_lh_base;
+  font-family: $t_ff_brand;
+  color: $c_gray-dark;
+  font-weight: $t_fw_book;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  display: block;
+  font-size: $t_fs_base;
+  line-height: $t_lh_base;
+  font-family: $t_ff_brand;
+  font-weight: $t_fw_book;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  text-decoration: none;
+  font-weight: inherit;
+}
+
+em {
+  font-style: italic;
+}
+
+b, strong {
+  font-weight: $t_fw_heavy;
+}
+
+code, pre {
+  background-color: #faf7f5;
+  font-family: Consolas,monospace;
+  font-size: 1em;
+  border: 0 none;
+  padding: 0 2px;
+  color: #51ab62;
+}

@@ -1,0 +1,39 @@
+.o-link {
+  transition: color 0.15s ease-out;
+  color: $c_black;
+  vertical-align: baseline;
+  text-decoration: none;
+  
+  &__icon {
+    font-size: 14px;
+    color: inherit;
+  }
+  
+  
+  &:hover {
+    color: $c_gray;
+  }
+  
+  // Gray variation
+  &--gray {
+    color: $c_gray;
+  
+    &:hover {
+      color: $c_black;
+    }
+    
+  }
+  
+  // Underline on hover variation
+  &--underline {
+
+    &:hover {
+      // Do not change color
+        color: inherit;
+      span {
+        text-decoration: underline;
+      }
+    }
+
+  }
+}

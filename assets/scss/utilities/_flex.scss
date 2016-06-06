@@ -1,0 +1,278 @@
+/* Applies to flex container
+   ========================================================================== */
+
+/**
+ * Container
+ */
+
+.u-display-flex {
+  display: flex !important;
+  
+  &\@xso {
+    @media #{bp(xso)} { display: flex !important; }
+  }
+  
+  &\@mdo {
+    @media #{bp(mdo)} { display: flex !important; }
+  }
+  
+}
+
+
+/**
+ * Direction: row
+ */
+
+.u-flexDirextion-row {
+  flex-direction: row !important;
+}
+
+.u-flexDirection-rowReverse {
+  flex-direction: row-reverse !important;
+}
+
+/**
+ * Direction: column
+ */
+
+.u-flexDirection-col {
+  flex-direction: column !important;
+}
+
+.u-flexDirection-colReverse {
+  flex-direction: column-reverse !important;
+}
+
+/**
+ * Wrap
+ */
+
+.u-flexWrap-wrap {
+  flex-wrap: wrap !important;
+   &\@smu {
+    @media #{bp(smu)} { flex-wrap: wrap !important; }
+  }
+}
+
+.u-flexWrap-noWrap {
+  flex-wrap: nowrap !important;
+}
+
+.u-flexWrap-reverse {
+  flex-wrap: wrap-reverse !important;
+}
+
+/**
+ * Align items along the main axis of the current line of the flex container
+ */
+
+.u-flexJustify-start {
+  justify-content: flex-start !important;
+}
+
+.u-flexJustify-end {
+  justify-content: flex-end !important;
+}
+
+.u-flexJustify-center {
+  justify-content: center !important;
+}
+
+.u-flexJustify-between {
+  justify-content: space-between !important;
+}
+
+.u-flexJustify-around {
+  justify-content: space-around !important;
+}
+
+/**
+ * Align items in the cross axis of the current line of the flex container
+ * Similar to `justify-content` but in the perpendicular direction
+ */
+
+.u-flexAlignItems-start {
+  align-items: flex-start !important;
+}
+
+.u-flexAlignItems-end {
+  align-items: flex-end !important;
+}
+
+.u-flexAlignItems-center {
+  align-items: center !important;
+  
+  &\@mdo {
+    @media #{bp(mdo)} { align-items: center !important }
+  }
+
+}
+
+.u-flexAlignItems-stretch {
+  align-items: stretch !important;
+}
+
+.u-flexAlignItems-baseline {
+  align-items: baseline !important;
+}
+
+/**
+ * Aligns items within the flex container when there is extra
+ * space in the cross-axis
+ *
+ * Has no effect when there is only one line of flex items.
+ */
+
+.u-flexAlignContent-start {
+  align-content: flex-start !important;
+}
+
+.u-flexAlignContent-end {
+  align-content: flex-end !important;
+}
+
+.u-flexAlignContent-center {
+  align-content: center !important;
+}
+
+.u-flexAlignContent-stretch {
+  align-content: stretch !important;
+}
+
+.u-flexAlignContent-between {
+  align-content: space-between !important;
+}
+
+.u-flexAlignContent-around {
+  align-content: space-around !important;
+}
+
+/**
+ * 1. Set the flex-shrink default explicitly to fix IE10 - http://git.io/vllC7
+ */
+
+/* postcss-bem-linter: ignore */
+
+.u-display-flex > * {
+  flex-shrink: 1; /* 1 */
+}
+
+/* Applies to flex items
+   ========================================================================== */
+
+/**
+ * Override default alignment of single item when specified by `align-items`
+ */
+
+.u-flexAlignSelf-start {
+  align-self: flex-start !important;
+}
+
+.u-flexAlignSelf-end {
+  align-self: flex-end !important;
+}
+
+.u-flexAlignSelf-center {
+  align-self: center !important;
+}
+
+.u-flexAlignSelf-stretch {
+  align-self: stretch !important;
+}
+
+.u-flexAlignSelf-baseline {
+  align-self: baseline !important;
+}
+
+.u-flexAlignSelf-auto {
+  align-self: auto !important;
+}
+
+/**
+ * Change order without editing underlying HTML
+ */
+
+.u-flexOrder-first {
+  order: -1 !important;
+}
+
+.u-flexOrder-last {
+  order: 1 !important;
+}
+
+.u-flexOrder-none {
+  order: 0 !important;
+}
+
+/**
+ * Specify the flex grow factor, which determines how much the flex item will
+ * grow relative to the rest of the flex items in the flex container.
+ *
+ * Supports 1-5 proportions
+ *
+ * 1. Provide all values to avoid IE10 bug with shorthand flex
+ *    - http://git.io/vllC7
+ *
+ *    Use `0%` to avoid bug in IE10/11 with unitless flex basis. Using this
+ *    instead of `auto` as this matches what the default would be with `flex`
+ *    shorthand - http://git.io/vllWx
+ */
+
+.u-flexGrow-1 {
+  flex: 1 1 0% !important; /* 1 */
+}
+
+.u-flexGrow-2 {
+  flex: 2 1 0% !important;
+}
+
+.u-flexGrow-3 {
+  flex: 3 1 0% !important;
+}
+
+.u-flexGrow-4 {
+  flex: 4 1 0% !important;
+}
+
+.u-flexGrow-5 {
+  flex: 5 1 0% !important;
+}
+
+/**
+ * Aligning with `auto` margins
+ * http://www.w3.org/TR/css-flexbox-1/#auto-margins
+ */
+
+.u-flexExpand {
+  margin: auto !important;
+}
+
+.u-flexExpand-left {
+  margin-left: auto !important;
+}
+.u-flexExpand-leftOnly {
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+
+.u-flexExpand-right {
+  margin-right: auto !important;
+}
+.u-flexExpand-rightOnly {
+  margin-right: auto !important;
+  margin-left: 0 !important;
+}
+
+.u-flexExpand-top {
+  margin-top: auto !important;
+}
+
+.u-flexExpand-bottom {
+  margin-bottom: auto !important;
+}
+
+
+
+.u-flexBase-full {
+  flex-basis: 100% !important;
+}

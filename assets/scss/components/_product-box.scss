@@ -1,0 +1,45 @@
+.c-productBox {
+  padding: 0 25px;
+  
+  @include breakpoint($md) {
+    padding: 0 45px;
+  }
+
+  img {
+    max-width: 100%;
+    transition: opacity 0.3s ease-in;
+  }
+  
+  &__desc {
+    display: block;
+    opacity: 1;
+    transition: opacity 0.3s ease-in;
+    
+    @include breakpoint($lg) {
+      opacity: 0;
+    }
+
+  }
+  
+  &:hover {
+    
+    img {
+      opacity: 0.6;
+    }
+    
+    .c-productBox__desc {
+      opacity: 1;
+    }
+
+  }
+  
+  &__cta {
+    display: inline-block;
+    padding-right: 15px;
+    background-image: url('{{ "arrow-right.svg" | asset_url }}');
+    background-position: right center;
+    background-size: 5px 10px;
+    background-repeat: no-repeat;
+  }
+
+}

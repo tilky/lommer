@@ -1,0 +1,98 @@
+.o-button {
+  appearance: none;
+  display: inline-block;
+  padding: 9px 23px;
+  margin: 0;
+  width: auto;
+  line-height: 1.42;
+  font-weight: $t_fw_book;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  white-space: normal;
+  cursor: pointer;
+  border: 2px solid transparent;
+  user-select: none;
+  border-radius: 2px;
+  transition: background-color 0.4s ease-out;
+  letter-spacing: 1px;
+  outline: none;
+  font-size: 16px;
+}
+
+.o-button--dark-fill {
+  background: $c_gray-dark;
+  color: $c_white;
+  border-color: $c_gray-dark;
+  
+  &:hover {
+    background-color: $c_black;
+    border-color: $c_black;
+  }
+
+  &:active {
+    background-color: $c_gray-medium;
+    border-color: $c_gray-medium;
+  }
+
+  &[disabled],
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    
+    &:hover {
+      background: $c_gray-dark;
+      border-color: $c_gray-dark;
+    }
+  }
+
+}
+
+.o-button--dark {
+  background: transparent;
+  color: $c_black;
+  border-color: $c_black;
+  
+  &:hover {
+    background-color: $c_black;
+    color: $c_white;
+  }
+
+  &:active {
+    background-color: #3a3c3c;
+    color: $c_white;
+    border-color: #3a3c3c;
+  }
+
+  &[disabled],
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+}
+  
+  
+.o-button--light {
+  background: transparent;
+  color: $c_white;
+  border-color: $c_white;
+  
+  &:hover {
+    background-color: $c_white;
+    color: $c_black;
+  }
+
+  &:active {
+    background-color: #fff;
+    color: $c_black;
+    border-color: #fff;
+  }
+
+  &[disabled],
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+}

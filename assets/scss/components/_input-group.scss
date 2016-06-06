@@ -1,0 +1,56 @@
+.c-input-group {
+  // Button and input forced height
+  $height: 47px;
+  
+  position: relative;
+  display: block;
+  border-collapse: separate;
+  
+  @include breakpoint($xs) {
+    display: table;
+  }
+  
+  &__input {
+    height: $height;
+    width: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    margin-bottom: $baselineGrid;
+    text-align: center;
+    
+    @include breakpoint($xs) {
+      display: table-cell;
+      margin: 0;
+      text-align: left;
+    }
+  }
+  
+  &__btn {
+    position: relative;
+    white-space: nowrap;
+    width: 100%;
+    padding: 0;
+    display: block;
+    vertical-align: middle;
+    margin: 0;
+    
+    @include breakpoint($xs) {
+      display: table-cell;
+      vertical-align: middle;
+      width: 1%;
+    }
+    
+    input {
+      height: $height;
+      display: block;
+      width: 100%;
+      
+      @include breakpoint($xs) {
+        display: inline-block;
+        width: auto;
+      }
+    }
+    
+  }
+  
+}

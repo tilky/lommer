@@ -1,30 +1,25 @@
-<!-- /templates/cart.liquid -->
-{% comment %}
+<div class="o-container">
 
-  For info on test orders:
-    - General http://docs.shopify.com/manual/your-store/orders/test-orders
-    - Shopify Payments - http://docs.shopify.com/manual/more/shopify-payments/testing-shopify-payments
-
-{% endcomment %}
-<div class="grid">
-  <div class="grid__item large--five-sixths push--large--one-twelfth">
+<div class="grid grid--center">
+  <div class="grid__item lgo--ten-twelfths">
+  
+    <header class="u-textAlign-center u-padTop-x5 u-padBottom-x5">
+      <h1 class="o-heading-medium u-color-black">Your Cart</h1>
+    </header>
+    
     {% if cart.item_count > 0 %}
-      <header class="section-header text-center">
-        <h1 class="text-center">{{ 'cart.general.title' | t }}</h1>
-        <hr class="hr--small">
-      </header>
-
-      <form action="/cart" method="post" novalidate class="cart">
-
-        <div class="cart__row medium-down--hide cart__header-labels">
-          <div class="grid--full">
-            <div class="grid__item large--two-fifths push--large--three-fifths">
-              <div class="grid--full">
-                <div class="grid__item one-third medium-down--half text-center">
-                  {{ 'cart.label.quantity' | t }}
+      <form action="/cart" method="post" novalidate>
+        
+        <!-- TABLE HEADER -->
+        <div class="u-display-none@mdu u-marBottom-x2 u-padBottom u-borderBottom-grayLight">
+          <div class="grid grid--full">
+            <div class="grid__item mdo--two-fifths push--mdo--three-fifths">
+              <div class="grid grid--full">
+                <div class="grid__item one-third u-textAlign-right u-fontSize-large u-fontWeight-medium">
+                  Quantity
                 </div>
-                <div class="grid__item two-thirds medium-down--half text-right">
-                  {{ 'cart.label.total' | t }}
+                <div class="grid__item two-thirds u-textAlign-right u-fontSize-large u-fontWeight-medium">
+                  Total
                 </div>
               </div>
             </div>
@@ -36,10 +31,10 @@
         {% endcomment %}
         {% for item in cart.items %}
           <div class="cart__row">
-            <div class="grid--full cart__row--table-large">
+            <div class="grid grid--full grid--middle">
 
-              <div class="grid__item large--three-fifths">
-                <div class="grid">
+              <div class="grid__item mdo--three-fifths">
+                <div class="grid grid--middle">
 
                   <div class="grid__item one-third">
                     <a href="{{ item.url | within: collections.all }}" class="cart__image">
@@ -48,12 +43,12 @@
                         More image size options at:
                           - http://docs.shopify.com/themes/filters/product-img-url
                       {% endcomment %}
-                      <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
+                      <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}" class="o-img-responsive">
                     </a>
                   </div>
 
                   <div class="grid__item two-thirds">
-                    <a href="{{ item.url }}" class="h4 cart__product-name">
+                    <a href="{{ item.url }}" class="o-link o-link--black u-fontSize-bsm">
                       {{ item.product.title }}
                     </a>
                     {% unless item.variant.title contains 'Default' %}
@@ -61,10 +56,6 @@
                         {{ item.variant.title }}
                       </p>
                     {% endunless %}
-
-                    {% if settings.product_vendor_enable %}
-                      <p class="cart__product-meta">{{ item.vendor }}</p>
-                    {% endif %}
 
                     {% assign property_size = item.properties | size %}
                     {% if property_size > 0 %}
@@ -85,7 +76,7 @@
                     {% endif %}
 
                     <p class="cart__product-meta">
-                      <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">
+                      <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="o-link o-link--black">
                         {{ 'cart.general.remove' | t }}
                       </a>
                     </p>
@@ -94,14 +85,14 @@
                 </div>
               </div>
 
-              <div class="grid__item large--two-fifths">
-                <div class="grid--full cart__row--table">
+              <div class="grid__item mdo--two-fifths">
+                <div class="grid grid--full cart__row--table">
 
                   <div class="grid__item one-third text-center">
                     <input type="number" name="updates[]" id="updates_{{ item.id }}" class="cart__product-qty" value="{{ item.quantity }}" min="0">
                   </div>
 
-                  <div class="grid__item two-thirds text-right">
+                  <div class="grid__item two-thirds u-textAlign-right">
                     {% if item.original_line_price != item.line_price %}
                       <small class="cart__price cart__price--strikethrough">{{ item.original_line_price | money }}</small>
                     {% endif %}
@@ -122,43 +113,36 @@
           </div>
         {% endfor %}
 
-        <div class="cart__row">
-          <div class="grid--full cart__row--table-large">
-            {% comment %}
-              Optional, add a textarea for special notes
-                - Your theme settings can turn this on or off. Default is on.
-                - Make sure you have name="note" for the message to be submitted properly
-            {% endcomment %}
-            {% if settings.cart_notes_enable %}
-              <div class="grid__item large--seven-twelfths">
-                <div class="cart__note">
-                  <label for="CartSpecialInstructions">{{ 'cart.general.note' | t }}</label>
-                  <textarea name="note" class="input-full" id="CartSpecialInstructions">{{ cart.note }}</textarea>
-                </div>
+        <div class="cart__row u-marBottom-x8 u-marTop-x2 u-padTop u-borderTop-grayLight">
+          <div class="grid grid--full">
+            <div class="grid__item lgo--seven-twelfths">
+              <div class="cart__note">
+                <label for="CartSpecialInstructions" class="u-color-black u-display-block u-marBottom">{{ 'cart.general.note' | t }}</label>
+                <textarea name="note" class="input-full" id="CartSpecialInstructions">{{ cart.note }}</textarea>
               </div>
-            {% endif %}
-            <div class="grid__item large--five-twelfths text-center large--text-right{% unless settings.cart_notes_enable %} push--large--seven-twelfths{% endunless %}">
-              <div class="grid--full cart__row--table">
-                <div class="grid__item one-half large--two-thirds large--text-center">
+            </div>
+            <div class="grid__item lgo--five-twelfths">
+              <div class="grid grid--full u-marBottom">
+                <div class="grid__item one-half lgo--two-thirds">
                   <p class="cart__subtotal">{{ 'cart.general.subtotal' | t }}</p>
                 </div>
-                <div class="grid__item one-half large--one-third">
+                <div class="grid__item one-half lgo--one-third u-textAlign-right">
                   <p class="cart__subtotal">{{ cart.total_price | money }}</p>
                 </div>
               </div>
               
               {% if cart.total_discounts > 0 %}
                 {% assign cartTotalDiscounts = cart.total_discounts | money %}
-                <p class="cart__savings">{{ 'cart.general.savings_html' | t: savings: cartTotalDiscounts }}</p>
+                <p class="cart__savings u-marBottom-tiny">{{ 'cart.general.savings_html' | t: savings: cartTotalDiscounts }}</p>
               {% endif %}
-              <p><em>{{ 'cart.general.shipping_at_checkout' | t }}</em></p>
-              <input type="submit" name="update" class="btn--secondary update-cart" value="{{ 'cart.general.update' | t }}">
-              <button type="submit" name="checkout" class="btn cart__checkout">
+              <p class="u-marBottom-tiny"><em>{{ 'cart.general.shipping_at_checkout' | t }}</em></p>
+              <input type="submit" name="update" class="o-button o-button--dark" value="{{ 'cart.general.update' | t }}">
+              <button type="submit" name="checkout" class="o-button o-button--dark-fill">
                 {{ 'cart.general.checkout' | t }} <span class="icon icon-arrow-right" aria-hidden="true"></span>
               </button>
 
               {% if additional_checkout_buttons %}
-                <div class="additional_checkout_buttons">{{ content_for_additional_checkout_buttons }}</div>
+                <div class="additional_checkout_buttons u-marTop">{{ content_for_additional_checkout_buttons }}</div>
               {% endif %}
             </div>
           </div>
@@ -168,9 +152,7 @@
       </form>
 
     {% else %}
-      {% comment %}
-        The cart is empty
-      {% endcomment %}
+    
       <header class="section-header text-center">
         <h1 class="text-center">{{ 'cart.general.title' | t }}</h1>
         <hr class="hr--small">

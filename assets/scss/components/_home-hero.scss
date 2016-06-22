@@ -101,23 +101,20 @@
     text-align: center;
   }
   
-  &-scroll {
+  // &-scroll {
     
-    svg {
-      transition: transform 0.3s ease-in-out;  
-      animation-name: scroll;
-      animation-duration: 3s;
-      animation-delay: 0s;
-      animation-iteration-count: 1;
-    }
-    
-    &:hover {
-      svg {
-        transform: translateY(7px);
-      }
+  //   svg {
+  //     transition: transform 0.3s ease-in-out;  
       
-    }
-  }
+  //   }
+    
+  //   &:hover {
+  //     svg {
+  //       transform: translateY(7px);
+  //     }
+      
+  //   }
+  // }
   
 }
 

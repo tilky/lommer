@@ -29,12 +29,12 @@ gulp.task('default', [
 ]);
 
 gulp.task('build', [
-	  'fonts:prod',
-	    'svg:prod',
+	  'fonts:dev',
+	    'svg:dev',
 	 'sprite:prod',
 	 'images:prod',
 	// 'scripts:prod',
-	 'styles:prod',
+	 'styles:dev',
 ]);
 
 

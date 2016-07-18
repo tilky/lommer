@@ -1,5 +1,6 @@
 # Lommer - Shopify theme
 
+
 * Development workflow based on (this article)[https://robots.thoughtbot.com/shopify-theme-development] by thoughtbot.
 * Based on (Timber)[(https://shopify.github.io/Timber/)] shopify theme framework
 
